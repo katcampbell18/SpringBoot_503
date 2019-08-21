@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>List</title>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-3">It's A Doggy Dog World!!!</h1>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <th scope="col">Name</th>
+                <th scope="col">Species</th>
+                </tr>
+            </thead>
+        <tbody>
+            <tr th:each="dog : ${dogs}">
+                <td th:text="${dog.name}"></td>
+                <td th:text="${dog.species}"></td>
+                <td th:if="${dog.image} !=null">
+                <img th:src="${dog.image}" /></td>
+            </tr>
+        </tbody>
+        </table>
+        <a class="btn btn-primary" href="/add" role="button">Add Dog</a>
+    </div>
+</body>
+</html>
